@@ -202,7 +202,7 @@ export default class Home extends React.Component {
     var prevY = 99;
     for (var key of Object.keys(graphData)) {
       var x = key;
-      var y = 99 - 99 * graphData[key];
+      var y = 100 - 99 * graphData[key];
       var xBefore = x - 1;
       x *= 300 / timeSpan;
       xBefore *= 300 / timeSpan;
@@ -262,8 +262,8 @@ export default class Home extends React.Component {
     var index = navigation.getParam("index");
     var want = data.items[index];
     var targetHeight =
-      100 -
-      (100 * this.state.price) / Math.max(this.state.sum, this.state.price);
+      100 - (99 * want.price) / Math.max(want.saved, want.price);
+    console.log("targetHeight: " + targetHeight);
     var graphUIComponents = (
       <Text style={styles.notEnoughData}>Not enough data for graph</Text>
     );
@@ -284,7 +284,7 @@ export default class Home extends React.Component {
               x2="300"
               y2={targetHeight}
               stroke="rgba(0,0,0,0.1)"
-              strokeWidth="4"
+              strokeWidth="2"
               strokeDasharray={[10, 10]}
             />
           </Svg>
