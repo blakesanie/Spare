@@ -187,9 +187,9 @@ export default class Home extends React.Component {
       if (out[daysSinceStart] == null) out[daysSinceStart] = amount;
       else out[daysSinceStart] += amount;
     }
-    // var now = new Date();
-    // var daysSinceNow = Math.floor(now.getTime() / 86400000) - firstDay + 1;
-    // out[daysSinceNow] = totalAmount/max;
+    var now = new Date();
+    var daysSinceNow = Math.floor(now.getTime() / 86400000) - firstDay + 1;
+    out[daysSinceNow] = totalAmount / max;
     return out;
   }
 
@@ -207,50 +207,11 @@ export default class Home extends React.Component {
       x *= 300 / timeSpan;
       xBefore *= 300 / timeSpan;
       d += "L" + xBefore + " " + prevY + " ";
-      d += "C" + x + " " + prevY + " " + xBefore + " " + y + " " + x + " " + 3;
-      y + " ";
+      d += "C" + x + " " + prevY + " " + xBefore + " " + y + " " + x + " " + y;
       prevY = y;
     }
     console.log(d);
     return d + "h100 v200 h-400 v-100";
-    // var maxHeight = Math.max(this.state.sum, this.state.price);
-    // var initial = this.state.sacrifices[0];
-    // var timeSpan =
-    //   this.state.sacrifices[this.state.sacrifices.length - 1].day -
-    //   initial.day +
-    //   1;
-    // var d = "M0 100 ";
-    // var sum = 0;
-    // var prevY = 99;
-    // for (var i = 0; i < this.state.sacrifices.length; i++) {
-    //   var current = this.state.sacrifices[i];
-    //   var daysSinceStart = current.day - initial.day + 1;
-    //   var x = (daysSinceStart * 300) / timeSpan;
-    //   sum += current.amount;
-    //   var y = 99 - (99 * sum) / maxHeight;
-    //   var xBefore = ((daysSinceStart - 1) * 300) / timeSpan;
-    //   var xMiddle = ((daysSinceStart - 0.5) * 300) / timeSpan;
-    //   var yMiddle = (y + prevY) / 2;
-    //   var guide = 5; //150 / timeSpan;
-    //
-    //   d += "L" + xBefore + " " + prevY + " ";
-    //   d +=
-    //     "C" +
-    //     x +
-    //     " " +
-    //     prevY +
-    //     " " +
-    //     xBefore +
-    //     " " +
-    //     y +
-    //     " " +
-    //     x +
-    //     " " +
-    //     y +
-    //     " ";
-    //   prevY = y;
-    // }
-    // return d + "h100 v200 h-400 v-100";
   }
 
   renderCells() {
@@ -383,50 +344,3 @@ export default class Home extends React.Component {
     );
   }
 }
-
-/*
-
-ThumbNail
-  text="Apple Watch"
-  saved="40"
-  price="150"
-  icon="paperclip"
-/>
-<ThumbNail
-  text="Apple Watch"
-  saved="40"
-  price="150"
-  icon="paperclip"
-/>
-<ThumbNail
-  text="Apple Watch"
-  saved="40"
-  price="150"
-  icon="paperclip"
-/>
-<ThumbNail
-  text="Apple Watch"
-  saved="40"
-  price="150"
-  icon="paperclip"
-/>
-<ThumbNail
-  text="Apple Watch"
-  saved="40"
-  price="150"
-  icon="paperclip"
-/>
-<ThumbNail
-  text="Apple Watch"
-  saved="40"
-  price="150"
-  icon="paperclip"
-/>
-
-M0 100 S50 90 80 90 S100 85 130 85 S150 30 180 30 S300 0 330 0
-
-d += "L" + xBefore + " " + prevY + " ";
-d += "L" + xMiddle + " " + yMiddle + " ";
-d += "L" + x + " " + y + " ";
-
-*/
