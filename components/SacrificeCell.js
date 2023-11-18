@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   icon: {}
 });
 
-export default class ThumbNail extends React.Component {
+export default class SacrificeCell extends React.Component {
   state = {};
 
   render() {

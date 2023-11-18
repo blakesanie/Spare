@@ -112,7 +112,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: "light",
     marginTop: 20,
-    marginBottom: 20
+    marginBottom: 20,
+    textAlign: "center"
   },
   caption: {
     fontSize: 20,
@@ -183,10 +184,10 @@ export default class EditSaving extends React.Component {
     var changeInAmount = newSaving.amount - initialAmount;
     current.items[wantIndex].saved += changeInAmount;
     current.totalSaved += changeInAmount;
-    // await db.ref("/").transaction(snapshot => {
-    //   snapshot.totalSaved += changeInAmount;
-    //   return snapshot;
-    // });
+    await db.ref("/").transaction(snapshot => {
+      snapshot.totalSaved += changeInAmount;
+      return snapshot;
+    });
     await AsyncStorage.setItem("data", JSON.stringify(current));
     const exit = navigation.getParam("exit");
     exit(current);
@@ -273,6 +274,7 @@ export default class EditSaving extends React.Component {
               />
               <Text style={styles.caption}>Title:</Text>
               <TextInput
+                maxLength={10}
                 clearButtonMode="always"
                 placeholder={
                   this.state.segmentedIndex == 0 ? "PayCheck" : "Morning Coffee"

@@ -18,7 +18,7 @@ import ActionButton from "../components/ActionButton";
 import EditButton from "../components/EditButton";
 import { Svg, BlurView } from "expo";
 import { colors } from "../constants";
-const AnimatedBlurView = Animated.createAnimatedComponent(BlurView);
+//const AnimatedBlurView = Animated.createAnimatedComponent(BlurView);
 
 const styles = StyleSheet.create({
   container: {
@@ -275,7 +275,7 @@ export default class Home extends React.Component {
               d={this.generateD()}
               strokeWidth="2"
               stroke={colors.green}
-              fill="#EAFFF3"
+              fill="#E6FFF1"
               strokeLinecap="round"
             />
             <Svg.Line
